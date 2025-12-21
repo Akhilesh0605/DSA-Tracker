@@ -19,23 +19,23 @@ For every problem, I follow a structured workflow:
 
 ## Repositary Structure
 
-├── Arrays_Hashing
-├── Two_Pointers
-├── Sliding_Window
-├── Stack
-├── Binary_Search
-├── Linked_List
-├── Trees
-├── Tries
-├── Heap_PriorityQueue
-├── Backtracking
-├── Graphs
-├── Advanced_Graphs
-├── Dynamic_Programming
-├── Greedy
-├── Math_BitManipulation
-├── Progress.md
-└── README.md
+    Arrays_Hashing
+    Two_Pointers
+    Sliding_Window
+    Stack
+    Binary_Search
+    Linked_List
+    Trees
+    Tries
+    Heap_PriorityQueue 
+    Backtracking
+    Graphs
+    Advanced_Graphs
+    Dynamic_Programming
+    Greedy
+    Math_BitManipulation
+    Progress.md
+    README.md
 
 ## Progress Tracking
 Progress is tracked in `Progress.md`, including:
