@@ -1,0 +1,18 @@
+## Question
+
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+You can return the answer in any order.
+
+#First Answer
+Approcahing by brute force like iterating through arr and findng the target value by value=target-nums[i];
+Time Complexity = O(n square)
+Space Complexiy= O(1)
+
+##Secind Answer Using HashMap
+ create a hashmap and add values as key and index as key 
+ iterating through each element and finding value by subtracting the element from target and checking if it already exists in hasmap if exists we reutn the keys
+ and if not we will add the value in hashmap
+
