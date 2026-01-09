@@ -1,0 +1,30 @@
+## Question
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+Example 1:
+Input: s = "anagram", t = "nagaram"
+Output: true
+
+## My Approach
+we can solve this question in the two ways one by using hashmap and another by using array
+  #Hashmap (can work for any)
+  we creat a hashmap by using the value as chars and key as frequency
+  #array (only lowercase)
+  we create a array of length 26 and count the frequency of that index and delete at the same time at last we count the frequnecy if any non zero element is preset
+  we return false if all zeros we return true
+
+#Solution 
+    class Solution {
+    public boolean isAnagram(String s, String t) {
+        if(s.length()!=t.length()) return false;
+        int [] freq = new int[26];
+        for(int i=0;i<s.length();i++){
+            freq[s.charAt(i)-'a']++;
+            freq[t.charAt(i)-'a']--;
+        }
+        for (int count : freq) {
+            if (count != 0) return false;
+        }
+        return true;
+
+    }
+}
