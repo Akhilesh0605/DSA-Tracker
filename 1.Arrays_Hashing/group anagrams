@@ -1,0 +1,35 @@
+# Question
+  Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+  Example 1:
+  Input: strs = ["eat","tea","tan","ate","nat","bat"]
+  Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+  Explanation:
+  There is no string in strs that can be rearranged to form "bat".
+  The strings "nat" and "tan" are anagrams as they can be rearranged to form each other.
+  The strings "ate", "eat", and "tea" are anagrams as they can be rearranged to form each other.
+
+#My approcah
+ #using hashmap
+  we can sort the elements oft the strings array and keep them as key and add the other elemens as the array list and we return all the values in the hashmap
+  here we get seperate list for each unique key
+  if not sort we can use freqency array as the key
+
+#solution 
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        HashMap<String,List> map=new HashMap<>();
+        for(String s:strs){
+            int[] count = new int[26];
+            for(char c : s.toCharArray()){
+                count[c-'a']++;
+            }
+            String key = Arrays.toString(count);
+
+            if(!map.containsKey(key)){
+                map.put(key,new ArrayList<String>());
+            }
+            map.get(key).add(s);
+        }
+        return new ArrayList(map.values());
+    }
+}
