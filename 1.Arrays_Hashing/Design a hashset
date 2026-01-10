@@ -1,0 +1,92 @@
+## Question
+Design a HashSet without using any built-in hash table libraries.
+  
+  Implement MyHashSet class:
+  
+  void add(key) Inserts the value key into the HashSet.
+  bool contains(key) Returns whether the value key exists in the HashSet or not.
+  void remove(key) Removes the value key in the HashSet. If key does not exist in the HashSet, do nothing.
+
+## My Approach
+   First i understood how hashset works underhood like its time complexity its hashfuvnction what is bucket
+   next i implemented the hashset by first creating the bucket class with a linked list in the bucket 
+   for inserting will checkif it exists in the list if not we will add element to the head of list
+   for removing we directly remove 
+   for contains we check the index if -1 we return false if index exists we return true
+   now for hashset i initiliazed the no of buckets to 769 largest promen number then found key using key=key%769
+    created instance for the bucket and clled the functions for the respective operation
+
+## Solution
+
+  class Bucket{
+    private List<Integer> container;
+
+    public Bucket(){
+        this.container=new LinkedList<Integer>();
+    }
+    public void insert(Integer val){
+        int index=this.container.indexOf(val);
+        if(index==-1){
+            this.container.addFirst(val);
+        }
+    }
+    public void remove(Integer val){
+        this.container.remove(val);
+    }
+    public boolean contains(Integer val){
+        int index=this.container.indexOf(val);
+
+        return index!=-1;
+    }
+}
+
+class MyHashSet {
+    int numBuckets=769;
+    Bucket[] buckets;
+    public MyHashSet() {
+        this.buckets = new Bucket[this.numBuckets];
+        for(int i=0;i<numBuckets;i++){
+            this.buckets[i]=new Bucket();
+        }
+    }
+    private int getIndex(int key){
+        return key%numBuckets;
+    }
+    public void add(int key) {
+        int bucketIndex=this.getIndex(key);
+        this.buckets[bucketIndex].insert(key);
+    }
+    
+    public void remove(int key) {
+        int bucketIndex=this.getIndex(key);
+        this.buckets[bucketIndex].remove(key);
+    }
+    
+    public boolean contains(int key) {
+        int bucketIndex=this.getIndex(key);
+        return this.buckets[bucketIndex].contains(key);
+    }
+}
+
+## aprocah there is another solutuion to pass this leetcode by using boolean array which is not the hashset but it solves the problme
+
+class MyHashSet {
+
+    private boolean[] storage;
+
+    public MyHashSet() {
+        storage = new boolean[1_000_001]; // Initialize array for keys in range [0, 1000000]
+    }
+
+    public void add(int key) {
+        storage[key] = true; // Mark key as present
+    }
+
+    public void remove(int key) {
+        storage[key] = false; // Mark key as absent
+    }
+
+    public boolean contains(int key) {
+        return storage[key]; // Check if key is present
+    }
+}
